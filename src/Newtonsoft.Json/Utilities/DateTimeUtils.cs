@@ -25,6 +25,7 @@
 
 using System;
 using System.IO;
+using System.Xml;
 #if !UNITY3D
 using System.Xml;
 #endif
@@ -53,14 +54,14 @@ namespace Newtonsoft.Json.Utilities
 
         public static TimeSpan GetUtcOffset(this DateTime d)
         {
-#if NET20 || UNITY3D
+#if NET20 || UNITY3D && !NETSTANDARD2_0
             return TimeZone.CurrentTimeZone.GetUtcOffset(d);
 #else
             return TimeZoneInfo.Local.GetUtcOffset(d);
 #endif
         }
 
-#if !(PORTABLE40 || PORTABLE || UNITY3D)
+#if !(PORTABLE40 || PORTABLE || UNITY3D) || NETSTANDARD2_0
         public static XmlDateTimeSerializationMode ToSerializationMode(DateTimeKind kind)
         {
             switch (kind)

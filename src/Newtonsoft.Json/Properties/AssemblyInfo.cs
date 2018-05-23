@@ -32,7 +32,9 @@ using System.Security;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-#if PORTABLE40
+#if NETSTANDARD2_0
+[assembly: AssemblyTitle("Json.NET .NET Standard 2.0")]
+#elif PORTABLE40
 [assembly: AssemblyTitle("Json.NET Portable .NET 4.0")]
 #elif PORTABLE
 [assembly: AssemblyTitle("Json.NET Portable")]

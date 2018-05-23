@@ -826,8 +826,8 @@ namespace Newtonsoft.Json.Utilities
             {
                 Type t = (Type)provider;
                 return (attributeType != null)
-                    ? t.GetTypeInfo().GetCustomAttributes(attributeType, inherit).ToArray()
-                    : t.GetTypeInfo().GetCustomAttributes(inherit).ToArray();
+                    ? t.GetTypeInfo().GetCustomAttributes(attributeType, inherit).Cast<Attribute>().ToArray()
+                    : t.GetTypeInfo().GetCustomAttributes(inherit).Cast<Attribute>().ToArray();
             }
 
             if (provider is Assembly)
@@ -839,7 +839,7 @@ namespace Newtonsoft.Json.Utilities
             if (provider is MemberInfo)
             {
                 MemberInfo m = (MemberInfo)provider;
-                return (attributeType != null) ? m.GetCustomAttributes(attributeType, inherit).ToArray() : m.GetCustomAttributes(inherit).ToArray();
+                return (attributeType != null) ? m.GetCustomAttributes(attributeType, inherit).Cast<Attribute>().ToArray() : m.GetCustomAttributes(inherit).Cast<Attribute>().ToArray();
             }
 
             if (provider is Module)
@@ -851,7 +851,7 @@ namespace Newtonsoft.Json.Utilities
             if (provider is ParameterInfo)
             {
                 ParameterInfo p = (ParameterInfo)provider;
-                return (attributeType != null) ? p.GetCustomAttributes(attributeType, inherit).ToArray() : p.GetCustomAttributes(inherit).ToArray();
+                return (attributeType != null) ? p.GetCustomAttributes(attributeType, inherit).Cast<Attribute>().ToArray() : p.GetCustomAttributes(inherit).Cast<Attribute>().ToArray();
             }
 
             throw new Exception("Cannot get attributes from '{0}'.".FormatWith(CultureInfo.InvariantCulture, provider));

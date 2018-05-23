@@ -44,6 +44,13 @@ namespace Newtonsoft.Json
     /// </summary>
     public class JsonSerializer
     {
+        private static readonly bool s_runOnClr;
+
+        static JsonSerializer()
+        {
+            s_runOnClr = !string.IsNullOrEmpty(EnvironmentHelper.RuntimeNetCoreVersion);
+        }
+
         internal TypeNameHandling _typeNameHandling;
         internal FormatterAssemblyStyle _typeNameAssemblyFormat;
         internal PreserveReferencesHandling _preserveReferencesHandling;

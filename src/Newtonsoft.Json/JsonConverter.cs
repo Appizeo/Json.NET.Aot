@@ -26,6 +26,7 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json.Schema;
 using Newtonsoft.Json.Utilities;
 #if !UNITY3D
 using Newtonsoft.Json.Schema;
@@ -65,7 +66,7 @@ namespace Newtonsoft.Json
         /// </returns>
         public abstract bool CanConvert(Type objectType);
 
-#if !UNITY3D
+#if !UNITY3D || NETSTANDARD2_0
         /// <summary>
         /// <para>
         /// Gets the <see cref="JsonSchema"/> of the JSON produced by the JsonConverter.
