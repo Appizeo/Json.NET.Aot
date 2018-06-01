@@ -2,15 +2,13 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <RootNamespace>Newtonsoft.Json.Tests</RootNamespace>
-    <FileUpgradeFlags>
-    </FileUpgradeFlags>
-    <UpgradeBackupLocation>
-    </UpgradeBackupLocation>
-    <OldToolsVersion>2.0</OldToolsVersion>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <LangVersion>7.3</LangVersion>
-    <DefineConstants>NETSTANDARD;NETSTANDARD2_0;PORTABLE</DefineConstants>
+    <DefineConstants>DEBUG;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+  </PropertyGroup>
+    <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
+    <DefineConstants>$(DefineConstants);UNITY3D</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="NUnit" Version="3.10.1" />
@@ -18,4 +16,9 @@
   <ItemGroup>
     <ProjectReference Include="..\Newtonsoft.Json\Newtonsoft.Json.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.4.1" />
+  </ItemGroup>
+
 </Project>
