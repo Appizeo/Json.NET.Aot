@@ -15,7 +15,7 @@ I had to drop to be able the test project, as there is many differences between 
 
 ## Where can I get it?
 
-Visit [Release](https://github.com/Daddoon/Json.NET.Aot/releases) or from NuGet (will publish link)
+Visit [Release](https://github.com/Daddoon/Json.NET.Aot/releases) or from [NuGet](https://www.nuget.org/packages/Json.NET.Aot/9.0.1)
 
 ## What's done?
 
