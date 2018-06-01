@@ -15,26 +15,13 @@ I had to drop to be able the test project, as there is many differences between 
 
 ## Where can I get it?
 
-Visit [Release](https://github.com/SaladLab/Json.Net.Unity3D/releases)
-page to get latest Json.NET unity-package.
-
-To use this library in IL2CPP build settings, you need to add
-[link.xml](https://github.com/SaladLab/Json.Net.Unity3D/blob/master/src/UnityPackage/Assets/link.xml) to your project's asset folder.
-For detailed information about link.xml, read unity [manual](http://docs.unity3d.com/Manual/iphone-playerSizeOptimization.html) about this.
-
-## What's the deal?
-
-Unity3D has old-fashioned and bizarre .NET Framework like these :)
- - Basically based on .NET Framework 3.5 ([forked Mono 2.6](https://github.com/Unity-Technologies/mono/commits/unity-staging))
- - Runtime lacks some types in .NET Framework 3.5 (like System.ComponentModel.AddingNewEventHandler)
- - For iOS, dynamic code emission is forbidden by Apple AppStore.
-
-Because Newtonsoft Json.NET doesn't handle these limitations, errors will welcome you
-when you use official Json.NET dll targetting .NET 3.5 Framework.
+Visit [Release](https://github.com/Daddoon/Json.NET.Aot/releases) or from NuGet (will publish link)
 
 ## What's done?
 
-Following works are done to make Json.NET support Unity3D.
+Based on **SaladLab README**:
+
+Following works are done to make Json.NET support Unity3D (AOT platforms)
 
  - Based on Newtonsoft Json.NET 9.
  - Disable IL generation to work well under AOT environment like iOS.
@@ -43,8 +30,3 @@ Following works are done to make Json.NET support Unity3D.
  - Remove XML support.
  - Remove DiagnosticsTraceWriter support.
  - Workaround for differences between Microsoft.NET & Unity3D-Mono.NET
-
-For Unity.Lite version, additional works are done to make more lite.
-
- - Remove JsonLinq, JPath (JToken, ...)
- - Remove Bson
