@@ -14,10 +14,15 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <LangVersion>7.3</LangVersion>
     <DefineConstants>DEBUG;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+    <OutputPath>lib\</OutputPath>
   </PropertyGroup>
-
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <LangVersion>7.3</LangVersion>
+    <DefineConstants>RELEASE;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
+    <OutputPath>lib\</OutputPath>
+  </PropertyGroup>
   <PropertyGroup Condition="'$(TargetFramework)'=='netstandard2.0'">
-    <DefineConstants>$(DefineConstants);UNITY3D</DefineConstants>
+    <DefineConstants>UNITY3D</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup>
@@ -27,5 +32,9 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.CSharp" Version="4.4.1" />
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="nuget pack Json.Net.AOT.nuspec -OutputDirectory .\artifacts&#xD;&#xA;del /F /S /Q %UserProfile%\.nuget\packages\json.net.aot &gt;nul 2&gt;&amp;1" />
+  </Target>
 
 </Project>
